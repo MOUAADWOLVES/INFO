@@ -1,57 +1,58 @@
-// بيانات المنشورات
-let posts = [
+// بيانات المحتوى
+let contents = [
     {
-        title: "أفضل أدوات الأمان الرقمي لعام 2025",
-        date: "2025-03-25",
-        image: "https://example.com/security-tools.jpg",
-        btnText: "تحميل الأدوات",
-        btnLink: "https://example.com/download",
+        title: "أدوات الأمان المتقدمة",
+        category: "أدوات الأمان",
+        image: "https://via.placeholder.com/400x200?text=أدوات+الأمان",
+        btnText: "تحميل الأداة",
+        btnLink: "#",
         isFeatured: true
     },
     {
-        title: "دليل حماية الخصوصية على الإنترنت",
-        date: "2025-02-15",
-        image: "https://example.com/privacy-guide.jpg",
+        title: "دليل حماية الخصوصية",
+        category: "أدلة",
+        image: "https://via.placeholder.com/400x200?text=دليل+الخصوصية",
         btnText: "قراءة الدليل",
-        btnLink: "https://example.com/guide",
+        btnLink: "#",
         isFeatured: true
     }
 ];
 
-// عرض المنشورات
-function displayPosts() {
-    const featuredContainer = document.getElementById('featured-posts');
-    const thumbnailsContainer = document.getElementById('thumbnails');
+// عرض المحتوى
+function displayContents() {
+    const featuredContainer = document.getElementById('featured-content');
+    const securityToolsContainer = document.getElementById('security-tools');
     
     // مسح المحتوى الحالي
-    featuredContainer.innerHTML = '<h2>مشاركات مميزة</h2>';
-    thumbnailsContainer.innerHTML = '';
+    featuredContainer.innerHTML = '';
+    securityToolsContainer.innerHTML = '';
     
-    // عرض المنشورات المميزة
-    posts.filter(post => post.isFeatured).forEach(post => {
-        const postElement = document.createElement('div');
-        postElement.className = 'featured-post';
-        postElement.innerHTML = `
-            <h3>${post.title}</h3>
-            <p>${post.date}</p>
-            <img src="${post.image}" alt="${post.title}" style="max-width: 100%; height: auto;">
-            <div class="admin-actions">
-                <a href="${post.btnLink}" class="btn">${post.btnText}</a>
+    // عرض المحتوى المميز
+    contents.filter(content => content.isFeatured).forEach(content => {
+        const contentElement = document.createElement('div');
+        contentElement.className = 'content-card';
+        contentElement.innerHTML = `
+            <img src="${content.image}" alt="${content.title}" class="content-img">
+            <div class="content-body">
+                <h3 class="content-title">${content.title}</h3>
+                <a href="${content.btnLink}" class="content-btn">${content.btnText}</a>
             </div>
         `;
-        featuredContainer.appendChild(postElement);
+        featuredContainer.appendChild(contentElement);
     });
     
-    // عرض الصور المصغرة
-    posts.forEach(post => {
-        const thumbnail = document.createElement('img');
-        thumbnail.src = post.image;
-        thumbnail.alt = post.title;
-        thumbnail.onclick = () => {
-            // عند النقر على الصورة المصغرة، عرض المنشور الكامل
-            window.location.href = post.btnLink;
-        };
-        thumbnailsContainer.appendChild(thumbnail);
+    // عرض أدوات الأمان
+    contents.filter(content => content.category === "أدوات الأمان").forEach(tool => {
+        const toolElement = document.createElement('div');
+        toolElement.className = 'content-card';
+        toolElement.innerHTML = `
+            <img src="${tool.image}" alt="${tool.title}" class="content-img">
+            <div class="content-body">
+                <h3 class="content-title">${tool.title}</h3>
+                <a href="${tool.btnLink}" class="content-btn">${tool.btnLink}</a>
+            </div>
+        `;
+        securityToolsContainer.appendChild(toolElement);
     });
 }
 
@@ -68,7 +69,7 @@ function loginAdmin() {
     }
 }
 
-// إضافة منشور جديد
+// إضافة محتوى جديد
 function addPost() {
     const title = document.getElementById('post-title').value;
     const image = document.getElementById('post-image').value;
@@ -76,17 +77,17 @@ function addPost() {
     const btnLink = document.getElementById('post-btn-link').value;
     
     if (title && image && btnText && btnLink) {
-        const newPost = {
+        const newContent = {
             title,
-            date: new Date().toISOString().split('T')[0],
+            category: "أدوات الأمان",
             image,
             btnText,
             btnLink,
             isFeatured: true
         };
         
-        posts.unshift(newPost);
-        displayPosts();
+        contents.unshift(newContent);
+        displayContents();
         
         // مسح حقول الإدخال
         document.getElementById('post-title').value = '';
@@ -94,26 +95,26 @@ function addPost() {
         document.getElementById('post-btn-text').value = '';
         document.getElementById('post-btn-link').value = '';
         
-        alert('تمت إضافة المنشور بنجاح!');
+        alert('تمت إضافة المحتوى بنجاح!');
     } else {
         alert('الرجاء ملء جميع الحقول!');
     }
 }
 
-// البحث في المنشورات
+// البحث في المحتوى
 document.querySelector('.search-bar').addEventListener('input', function(e) {
     const searchTerm = e.target.value.toLowerCase();
-    const featuredPosts = document.querySelectorAll('.featured-post');
+    const contentCards = document.querySelectorAll('.content-card');
     
-    featuredPosts.forEach(post => {
-        const title = post.querySelector('h3').textContent.toLowerCase();
+    contentCards.forEach(card => {
+        const title = card.querySelector('.content-title').textContent.toLowerCase();
         if (title.includes(searchTerm)) {
-            post.style.display = 'block';
+            card.style.display = 'block';
         } else {
-            post.style.display = 'none';
+            card.style.display = 'none';
         }
     });
 });
 
-// عرض المنشورات عند تحميل الصفحة
-window.onload = displayPosts;
+// عرض المحتوى عند تحميل الصفحة
+window.onload = displayContents;

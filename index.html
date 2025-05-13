@@ -7,12 +7,23 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>𝑺𝒉𝒂𝒅𝒐𝒘𝑵𝒆𝒕</header>
+    <header>
+        <div class="logo">𝑺𝒉𝒂𝒅𝒐𝒘𝑵𝒆𝒕</div>
+        <nav class="main-nav">
+            <a href="#">الرئيسية</a>
+            <a href="#">الملفات</a>
+            <a href="#">الأدوات</a>
+            <a href="#">الإعدادات</a>
+        </nav>
+    </header>
+    
+    <div class="breadcrumbs">
+        <a href="#">𝑺𝒉𝒂𝒅𝒐𝒘𝑵𝒆𝒕</a> &gt;
+        <a href="#">القسم الرئيسي</a> &gt;
+        <a href="#">المحتوى المميز</a>
+    </div>
     
     <div class="container">
-        <!-- قسم البحث -->
-        <input type="text" class="search-bar" placeholder="ابحث في المنشورات...">
-        
         <!-- قسم الأدمن -->
         <div class="admin-section">
             <h2>قسم الأدمن</h2>
@@ -23,28 +34,42 @@
             </div>
             
             <div id="admin-actions" style="display: none;">
-                <h3>إضافة منشور جديد</h3>
-                <input type="text" class="admin-input" placeholder="عنوان المنشور" id="post-title">
+                <h3>إضافة محتوى جديد</h3>
+                <input type="text" class="admin-input" placeholder="عنوان المحتوى" id="post-title">
                 <input type="text" class="admin-input" placeholder="رابط الصورة" id="post-image">
                 <input type="text" class="admin-input" placeholder="النص على الزر" id="post-btn-text">
                 <input type="text" class="admin-input" placeholder="رابط الزر" id="post-btn-link">
-                <button class="btn" onclick="addPost()">إضافة منشور</button>
+                <button class="btn" onclick="addPost()">إضافة</button>
             </div>
         </div>
         
-        <!-- المنشورات المميزة -->
-        <div id="featured-posts">
-            <h2>مشاركات مميزة</h2>
-            <!-- سيتم إضافة المنشورات هنا عبر JavaScript -->
+        <!-- قسم البحث -->
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="ابحث في المحتوى...">
+            <button class="search-btn">بحث</button>
         </div>
         
-        <!-- قسم الصور المصغرة -->
-        <div class="thumbnail-section">
-            <h2>صور مصغرة</h2>
-            <div id="thumbnails">
-                <!-- سيتم إضافة الصور المصغرة هنا عبر JavaScript -->
+        <!-- المحتوى المميز -->
+        <div class="content-section">
+            <h2 class="section-title">المحتوى المميز</h2>
+            <div id="featured-content">
+                <!-- سيتم إضافة المحتوى هنا عبر JavaScript -->
             </div>
-            <button class="btn">عرض المزيد</button>
+        </div>
+        
+        <!-- إعلان (اختياري) -->
+        <div class="ad-section">
+            <p>مساحة إعلانية</p>
+        </div>
+        
+        <!-- الأقسام الفرعية -->
+        <div class="sub-sections">
+            <div class="sub-section">
+                <h3>أدوات الأمان</h3>
+                <div id="security-tools">
+                    <!-- سيتم إضافة الأدوات هنا عبر JavaScript -->
+                </div>
+            </div>
         </div>
     </div>
 

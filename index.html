@@ -1,77 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝑺𝒉𝒂𝒅𝒐𝒘𝑵𝒆𝒕</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <div class="logo">𝑺𝒉𝒂𝒅𝒐𝒘𝑵𝒆𝒕</div>
-        <nav class="main-nav">
-            <a href="#">الرئيسية</a>
-            <a href="#">الملفات</a>
-            <a href="#">الأدوات</a>
-            <a href="#">الإعدادات</a>
-        </nav>
-    </header>
-    
-    <div class="breadcrumbs">
-        <a href="#">𝑺𝒉𝒂𝒅𝒐𝒘𝑵𝒆𝒕</a> &gt;
-        <a href="#">القسم الرئيسي</a> &gt;
-        <a href="#">المحتوى المميز</a>
-    </div>
-    
-    <div class="container">
-        <!-- قسم الأدمن المعدل -->
-        <div class="admin-section">
-            <h2><span class="admin-icon">👑</span> قسم الأدمن</h2>
-            <div class="admin-form">
-                <input type="password" class="admin-input" placeholder="كلمة السر" id="admin-password">
-                <button class="btn" onclick="loginAdmin()">دخول</button>
-            </div>
-            
-            <div id="admin-actions" style="display: none;">
-                <h3>إضافة محتوى جديد</h3>
-                <input type="text" class="admin-input" placeholder="عنوان المحتوى" id="post-title">
-                <input type="text" class="admin-input" placeholder="رابط الصورة" id="post-image">
-                <input type="text" class="admin-input" placeholder="النص على الزر" id="post-btn-text">
-                <input type="text" class="admin-input" placeholder="رابط الزر" id="post-btn-link">
-                <button class="btn add-btn">إضافة</button>
-            </div>
-        </div>
-        
-        <!-- قسم البحث -->
-        <div class="search-container">
-            <input type="text" class="search-bar" placeholder="ابحث في المحتوى...">
-            <button class="search-btn">🔍 بحث</button>
-        </div>
-        
-        <!-- المحتوى المميز -->
-        <div class="content-section">
-            <h2 class="section-title">🌟 المحتوى المميز</h2>
-            <div id="featured-content">
-                <!-- سيتم إضافة المحتوى هنا عبر JavaScript -->
-            </div>
-        </div>
-        
-        <!-- إعلان -->
-        <div class="ad-section">
-            <div class="ad-content">مساحة إعلانية</div>
-        </div>
-        
-        <!-- الأقسام الفرعية -->
-        <div class="sub-sections">
-            <div class="sub-section">
-                <h3>🛡️ أدوات الأمان</h3>
-                <div id="security-tools">
-                    <!-- سيتم إضافة الأدوات هنا عبر JavaScript -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
